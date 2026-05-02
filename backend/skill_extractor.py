@@ -1,16 +1,9 @@
-import spacy
-
-nlp = spacy.load("en_core_web_sm")
-
-skills_db = ["python", "java", "react", "sql", "machine learning", "ai"]
-
 def extract_skills(text):
-    doc = nlp(text.lower())
+    skills_db = ["python", "java", "react", "sql", "machine learning", "ai"]
 
-    found_skills = set()
+    found_skills = []
+    for skill in skills_db:
+        if skill.lower() in text.lower():
+            found_skills.append(skill)
 
-    for token in doc:
-        if token.text in skills_db:
-            found_skills.add(token.text)
-
-    return list(found_skills)
+    return found_skills
