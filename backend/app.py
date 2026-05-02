@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import os
 from resume_parser import extract_text
 from skill_extractor import extract_skills
-from scoring import calculate_score
+
 app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
@@ -27,6 +27,3 @@ def upload_resume():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-    score = calculate_score(skills)
-    
