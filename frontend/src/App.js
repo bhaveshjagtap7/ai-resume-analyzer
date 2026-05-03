@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [file, setFile] = useState(null);
@@ -18,21 +19,26 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>AI Resume Analyzer</h1>
+    <div className="container">
+      <h1 className="title">AI Resume Analyzer</h1>
 
       <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-      <button onClick={handleUpload}>Upload</button>
+      <br />
+
+      <button onClick={handleUpload}>Upload Resume</button>
 
       {result && (
-        <div>
-          <h3>Score: {result.score}</h3>
-          <h4>Skills:</h4>
-          <ul>
+        <div className="result">
+          <div className="score">Score: {result.score}/100</div>
+
+          <div className="skills">
+            <h4>Skills:</h4>
             {result.skills.map((s, i) => (
-              <li key={i}>{s}</li>
+              <span key={i} className="skill-item">
+                {s}
+              </span>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>
