@@ -17,7 +17,7 @@ def calculate_ats_score(skills, text):
     keyword_score = (keyword_count / len(keywords)) * 20
 
     # Basic formatting assumption (20%)
-    format_score = 20 if len(text) > 500 else 
+    format_score = 20 if len(text) > 500 else 10
 
     score = skill_score + keyword_score + format_score
 
